@@ -4,7 +4,7 @@ Tillnames = ([" 5c: ", "10c: ", "20c: ", "50c: ", " $1: ", " $2: "], [" $5: ", "
 Tillmultiplyer = ([0.05, 0.1, 0.2, 0.5, 1, 2], [5, 10, 20, 50])
 
 comp = ([float, float, float])
-compn = ("MYOB cash totals?:   $", "Myob EFT totals?:    $", "EFT machine totals?: $")
+compn = ("MYOB Cash totals?:      $", "MYOB EFTPOS totals?:    $", "EFTPOS machine totals?: $")
 
 def advintinput(inputtext):
     x = input(inputtext)
@@ -14,7 +14,16 @@ def advintinput(inputtext):
             if (x == "/"):
                 change()
                 y = False
+                if (inputtext == "Press any key to close window when done..... or enter / to make changes: "):
+                    tt1 = sum(Till[0])+(sum(Till[1]))
+                    tt2 = sum(Till[0])+(sum(Till[1]))-250
+                    print()
+                    print("Till total = $", round((tt1),3))
+                    print("Till takings = $ ", round((tt2),3))
+                    finish(tt2)
                 return (advintinput(inputtext))
+            elif ((x == "")and(inputtext=="Press any key to close window when done..... or enter / to make changes: ")):
+                exit()
             else:
                 x = float(x)
                 y = False
@@ -22,6 +31,7 @@ def advintinput(inputtext):
         except ValueError:
             print("Wrong Entry, Please enter a number....")
             return (advintinput(inputtext))
+
 
 def intinput(inputtext):
     x = input(inputtext)
@@ -90,6 +100,7 @@ def change():
             print("Wrong Selection, please choose a number from 1 - 10")
             d = False
             d = True
+        
 
 def comptotals():
     print()
@@ -147,9 +158,11 @@ def finish(tt2):
     print("----------------------------------------")
     print()
 
+
 comptotals()
 
-input("Press any key to close window when done.....")
+advintinput("Press any key to close window when done..... or enter / to make changes: ")
+
 
 
     
