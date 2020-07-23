@@ -1,10 +1,10 @@
 
 Till = ([0, 0, 0, 0, 0, 0], [0, 0, 0, 0])
-Tillnames = (["5c: ", "10c: ", "20c: ", "50c: ", "$1: ", "$2: "], ["$5: ", "$10: ", "$20: ", "$50: "])
+Tillnames = ([" 5c: ", "10c: ", "20c: ", "50c: ", " $1: ", " $2: "], [" $5: ", "$10: ", "$20: ", "$50: "])
 Tillmultiplyer = ([0.05, 0.1, 0.2, 0.5, 1, 2], [5, 10, 20, 50])
 
 comp = ([float, float, float])
-compn = ("MYOB cash totals?: $", "Myob EFT totals?: $", "EFT machine totals?: $")
+compn = ("MYOB cash totals?:   $", "Myob EFT totals?:    $", "EFT machine totals?: $")
 
 def advintinput(inputtext):
     x = input(inputtext)
@@ -148,6 +148,8 @@ def finish(tt2):
     print()
 
 comptotals()
+
+input("Press any key to close window when done.....")
 
 
     
